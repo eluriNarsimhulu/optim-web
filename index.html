@@ -1,729 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optim - AI-Powered Ophthalmology Platform</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .feature-card {
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .team-card {
-            transition: all 0.3s ease;
-        }
-        
-        .team-card:hover {
-            transform: scale(1.05);
-        }
-        
-        .scroll-smooth {
-            scroll-behavior: smooth;
-        }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #764ba2;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optim – AI-Powered Ophthalmology Platform</title>
+<script>(w=>{console.warn=(...a)=>{if(String(a[0]).includes("cdn.tailwindcss.com"))return;w.apply(console,a)}})(console.warn)</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050507;--muted:#9096a0;--a1:#89AACC;--a2:#4E85BF}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:#f4f4f5;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+.grad-text{background:linear-gradient(180deg,#fff 35%,rgba(255,255,255,.4));-webkit-background-clip:text;background-clip:text;color:transparent}
+.acc-text{background:linear-gradient(90deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.acc-bg{background:linear-gradient(90deg,var(--a1),var(--a2))}
+.glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.card{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:28px;overflow:hidden;transition:border-color .3s,transform .3s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(78,133,191,.2),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{border-color:rgba(137,170,204,.45);transform:translateY(-4px)}.card:hover::before{opacity:1}
+.ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(137,170,204,.22),rgba(78,133,191,.08));border:1px solid rgba(137,170,204,.3);color:#cfe1f5}
+.ico svg{width:24px;height:24px}
+svg.ic{width:1.15em;height:1.15em;flex:none;display:inline-block;vertical-align:-.2em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border-radius:999px;padding:.85rem 1.7rem;font-size:.9rem;font-weight:500;transition:transform .25s,box-shadow .25s,border-color .25s}
+.btn:hover{transform:scale(1.05)}
+.btn-w{background:#fff;color:#050507;box-shadow:0 0 30px rgba(255,255,255,.25)}
+.btn-g{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);backdrop-filter:blur(10px)}
+.btn-g:hover{border-color:var(--a1)}
+.rise{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}.rise.in{opacity:1;transform:none}
+@keyframes heroIn{from{opacity:0;filter:blur(12px);transform:translateY(24px)}to{opacity:1;filter:blur(0);transform:none}}
+.h1{animation:heroIn 1.2s cubic-bezier(.2,.7,.2,1) both}.h2{animation:heroIn 1.2s .15s both}.h3{animation:heroIn 1.2s .3s both}.h4{animation:heroIn 1.2s .45s both}
+@keyframes ping2{to{box-shadow:0 0 0 10px rgba(78,133,191,0)}}
+.dot{width:6px;height:6px;border-radius:50%;background:#6fa8e8;box-shadow:0 0 0 0 rgba(78,133,191,.7);animation:ping2 1.8s infinite}
+.vid{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#16355f,#050507 70%)}
+h1,.h3{text-shadow:0 2px 24px rgba(0,0,0,.55)}
+.vid iframe,.vid img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+#hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78;filter:none;pointer-events:none}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,7,.12),rgba(5,5,7,.32) 55%,#050507 100%);pointer-events:none}
+.play{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.92);color:#050507;box-shadow:0 0 60px rgba(78,133,191,.7);transition:transform .25s}
+.vid button:hover .play{transform:scale(1.1)}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#050507}::-webkit-scrollbar-thumb{background:#2a2a30;border-radius:4px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--a1);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rise{opacity:1;transform:none}}
 
-        .hero-icon {
-            animation: pulse 3s ease-in-out infinite;
-        }
+/* ===== Responsive polish: phones, tablets, laptops and wide screens ===== */
+*{box-sizing:border-box}
+img,video,iframe{max-width:100%}
+body{overflow-x:hidden}
+section[id]{scroll-margin-top:100px}
+header{padding-top:max(10px,env(safe-area-inset-top))!important}
+header nav{min-height:58px}
+#home{min-height:100svh;min-height:100vh;padding-top:5.5rem}
+#hero-video{z-index:0}
+#bg{z-index:0}
+.hero-shade{z-index:1}
+#home>.relative{z-index:2}
+.vid{width:100%;isolation:isolate}
+.vid iframe{display:block}
+#about-grid,#feat-grid,#team-grid{min-width:0}
+.card{min-width:0}
+#team img{display:block;max-width:100%;object-position:center}
+#mentor .card{max-width:100%}
+footer a,.btn,nav a,button{-webkit-tap-highlight-color:transparent}
+.btn{min-height:44px}
+#mm{z-index:60;max-height:calc(100svh - 100px);overflow:auto}
+@media(max-width:767px){
+  html{scroll-padding-top:82px}
+  header{padding-left:10px!important;padding-right:10px!important}
+  header nav{border-radius:20px!important;padding:7px 9px!important;gap:6px!important}
+  header nav>a:first-child{gap:8px!important}
+  header nav>a:first-child span:last-child{font-size:1.05rem}
+  header nav .btn{font-size:.75rem!important;padding:9px 12px!important;min-height:40px;white-space:nowrap}
+  #mb{width:38px;height:38px;flex:0 0 38px}
+  #home{min-height: auto;padding-top:7.5rem;padding-bottom:4rem}
+  #home>.relative{padding-top:2rem!important;padding-bottom:2rem!important}
+  #home h1{font-size:clamp(2.5rem,10vw,4.25rem)!important;line-height:1.05!important}
+  #home p{font-size:1rem!important;line-height:1.7}
+  #home .h4.grid{margin-top:3rem!important;gap:12px!important}
+  #home .h4.grid>div>div:first-child{font-size:clamp(1.5rem,6vw,2.1rem)!important}
+  section.py-24{padding-top:4rem!important;padding-bottom:4rem!important}
+  #about-grid,#feat-grid{gap:14px!important}
+  .card{border-radius:22px}
+  #about-grid .card,#feat-grid .card{padding:1.35rem!important}
+  #demo .glass{padding:10px!important;border-radius:22px!important}
+  .vid{border-radius:14px}
+  #download>div{padding:2.5rem 1.1rem!important;border-radius:26px!important}
+  #download .flex.justify-center.gap-6{gap:14px!important}
+  #download .flex.justify-center.gap-6>div:not(.w-px){min-width:0}
+  #download .flex.justify-center.gap-6 .text-2xl{font-size:1.2rem!important}
+  #team-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  #team-grid .card{padding:1rem .65rem!important}
+  #team-grid img{width:76px!important;height:76px!important}
+  #team-grid h3{font-size:.95rem!important;overflow-wrap:anywhere}
+  #mentor .card{padding:1.5rem!important}
+  footer{padding-left:1.25rem!important;padding-right:1.25rem!important}
+}
+@media(max-width:420px){
+  header nav .btn{padding:8px 10px!important;font-size:.7rem!important}
+  #home .h4.flex{align-items:stretch!important}
+  #home .h4.flex .btn{width:100%;max-width:280px}
+  #home .h4.grid{gap:6px!important}
+  #home .h4.grid>div>div:last-child{font-size:.68rem!important}
+  #team-grid{grid-template-columns:1fr!important;max-width:310px;margin-left:auto;margin-right:auto}
+  #download .flex.justify-center.gap-6{gap:9px!important}
+  #download .flex.justify-center.gap-6 .text-2xl{font-size:1.05rem!important}
+  #download .flex.justify-center.gap-6 .text-sm{font-size:.7rem!important}
+}
+@media(min-width:768px) and (max-width:1023px){
+  #home h1{font-size:clamp(3.5rem,7vw,5.5rem)!important}
+  #team-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  #about-grid,#feat-grid{gap:16px!important}
+}
+@media(min-width:1280px){
+  #home>.relative{max-width:72rem}
+  #about>div,#features>div,#team>div{max-width:76rem}
+}
+@media(hover:none){
+  .card:hover{transform:none}
+  .btn:hover{transform:none}
+}
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
 
-        /* Video container responsive */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 1rem;
-        }
+/* Hero video framing: crop empty black space and keep the bright vortex visible */
+#hero-video{
+  object-fit:cover;
+  object-position:center 18%;
+  transform:scale(1.32);
+  transform-origin:center 18%;
+}
+@media(max-width:767px){
+  #hero-video{
+    object-position:center 15%;
+    transform:scale(1.18);
+    transform-origin:center 15%;
+  }
+}
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 1rem;
-        }
-
-        .github-button {
-            transition: all 0.3s ease;
-        }
-
-        .github-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+</style>
 </head>
-<body class="scroll-smooth">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white shadow-lg">
-        <div class="container mx-auto px-4 sm:px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
-                        <i class="fas fa-eye text-white text-xl"></i>
-                    </div>
-                    <span class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Optim</span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-purple-600 transition">Home</a>
-                    <a href="#about" class="text-gray-700 hover:text-purple-600 transition">About</a>
-                    <a href="#demo" class="text-gray-700 hover:text-purple-600 transition">Demo</a>
-                    <a href="#features" class="text-gray-700 hover:text-purple-600 transition">Features</a>
-                    <a href="#download" class="text-gray-700 hover:text-purple-600 transition">Download</a>
-                    <a href="#team" class="text-gray-700 hover:text-purple-600 transition">Team</a>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="https://github.com/eluriNarsimhulu/Optim" target="_blank" class="text-gray-700 hover:text-purple-600 transition">
-                        <i class="fab fa-github text-2xl"></i>
-                    </a>
-                    <a href="#download" class="gradient-bg text-white px-6 py-2 rounded-full hover:opacity-90 transition">
-                        Download App
-                    </a>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-            
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-3">
-                <a href="#home" class="block text-gray-700 hover:text-purple-600 transition">Home</a>
-                <a href="#about" class="block text-gray-700 hover:text-purple-600 transition">About</a>
-                <a href="#demo" class="block text-gray-700 hover:text-purple-600 transition">Demo</a>
-                <a href="#features" class="block text-gray-700 hover:text-purple-600 transition">Features</a>
-                <a href="#download" class="block text-gray-700 hover:text-purple-600 transition">Download</a>
-                <a href="#team" class="block text-gray-700 hover:text-purple-600 transition">Team</a>
-                <a href="https://github.com/eluriNarsimhulu/Optim" target="_blank" class="block text-gray-700 hover:text-purple-600 transition">
-                    <i class="fab fa-github mr-2"></i>GitHub
-                </a>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-20 gradient-bg">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="flex flex-col items-center justify-center text-center">
-                <div class="max-w-4xl text-white mb-12">
-                    <div class="mb-8 hero-icon">
-                        <i class="fas fa-eye text-white text-7xl sm:text-8xl opacity-90"></i>
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                        AI-Powered Ophthalmology Platform
-                    </h1>
-                    <p class="text-lg sm:text-xl mb-8 text-white/90 max-w-3xl mx-auto">
-                        Revolutionizing eye care through advanced artificial intelligence. Detect glaucoma, analyze fundus images, and get instant medical insights with cutting-edge technology.
-                    </p>
-                    <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#download" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition text-center">
-                            <i class="fas fa-download mr-2"></i>Download Now
-                        </a>
-                        <a href="#demo" class="glass-effect text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition text-center">
-                            <i class="fas fa-play mr-2"></i>Watch Demo
-                        </a>
-                        <a href="https://github.com/eluriNarsimhulu/Optim" target="_blank" class="glass-effect text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition text-center">
-                            <i class="fab fa-github mr-2"></i>View Source
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Visual Stats -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl mt-8">
-                    <div class="glass-effect rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-white mb-2">95%+</div>
-                        <div class="text-white/80">Diagnostic Accuracy</div>
-                    </div>
-                    <div class="glass-effect rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-white mb-2">70%</div>
-                        <div class="text-white/80">Time Reduction</div>
-                    </div>
-                    <div class="glass-effect rounded-2xl p-6 text-center">
-                        <div class="text-4xl font-bold text-white mb-2">24/7</div>
-                        <div class="text-white/80">Availability</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<header class="fixed top-0 inset-x-0 z-50 flex justify-center pt-4 px-4">
+  <nav class="glass rounded-full pl-3 pr-2 py-2 flex items-center gap-2 w-full max-w-5xl justify-between">
+    <a href="#home" class="flex items-center gap-2.5">
+      <span class="w-9 h-9 rounded-full acc-bg grid place-items-center text-[#050507]"><i data-i="eye"></i></span>
+      <span class="font-semibold tracking-tight text-lg">Optim</span>
+    </a>
+    <div class="hidden md:flex items-center gap-1 text-sm text-[var(--muted)]">
+      <a class="px-4 py-2 rounded-full hover:text-white hover:bg-white/10 transition" href="#about">About</a>
+      <a class="px-4 py-2 rounded-full hover:text-white hover:bg-white/10 transition" href="#demo">Demo</a>
+      <a class="px-4 py-2 rounded-full hover:text-white hover:bg-white/10 transition" href="#features">Features</a>
+      <a class="px-4 py-2 rounded-full hover:text-white hover:bg-white/10 transition" href="#team">Team</a>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="https://github.com/eluriNarsimhulu/Optim" target="_blank" rel="noopener" aria-label="GitHub" class="hidden sm:grid w-10 h-10 place-items-center rounded-full text-white/80 hover:text-white hover:bg-white/10 transition"><i data-i="github"></i></a>
+      <a href="#download" class="btn btn-w !py-2.5 !px-5 !text-sm">Download app</a>
+      <button id="mb" aria-label="Menu" class="md:hidden w-10 h-10 grid place-items-center rounded-full hover:bg-white/10"><i data-i="menu"></i></button>
+    </div>
+  </nav>
+  <div id="mm" class="hidden glass rounded-3xl absolute top-20 inset-x-4 p-3 flex-col text-white/80">
+    <a class="block px-4 py-3 rounded-xl hover:bg-white/10" href="#about">About</a>
+    <a class="block px-4 py-3 rounded-xl hover:bg-white/10" href="#demo">Demo</a>
+    <a class="block px-4 py-3 rounded-xl hover:bg-white/10" href="#features">Features</a>
+    <a class="block px-4 py-3 rounded-xl hover:bg-white/10" href="#team">Team</a>
+    <a class="block px-4 py-3 rounded-xl hover:bg-white/10" href="https://github.com/eluriNarsimhulu/Optim" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</header>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    About Optim
-                </h2>
-                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                    A cutting-edge AI platform designed to transform the landscape of eye care diagnosis and monitoring
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-comments text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center">Visual Question Answering</h3>
-                    <p class="text-gray-600 text-center">Interactive AI system for answering questions about ophthalmological images across multiple modalities including fundus photography, OCT scans, and slit-lamp images.</p>
-                </div>
-                
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-microscope text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center">Glaucoma Detection Suite</h3>
-                    <p class="text-gray-600 text-center">Advanced deep learning models for optic disc segmentation, binary classification, and multi-class severity grading with accurate cup-to-disc ratio calculations.</p>
-                </div>
-                
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-folder-open text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-center">Electronic Health Records</h3>
-                    <p class="text-gray-600 text-center">Comprehensive patient management system for storing medical records securely with complete patient history, examination records, and diagnostic reports.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Hero with lightweight static background -->
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden text-center px-6" style="background:radial-gradient(ellipse at 50% 10%,#10294a 0%,#050507 60%)">
+  <canvas id="bg" aria-hidden="true" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
+  <video id="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="hero-shade"></div>
+  <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 50% 35%,rgba(45,105,175,.14),transparent 58%)"></div>
+  <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050507] to-transparent"></div>
+  <div class="relative z-10 max-w-4xl pt-32 pb-24">
+    <!-- <div class="h1 glass inline-flex items-center gap-3 rounded-full px-4 py-2 text-xs sm:text-sm text-white/70 mb-10"><span class="dot"></span>Now available for Android</div> -->
+    <h1 class="h2 grad-text text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight leading-[1.05] mb-7">Eye care at the pace<br>of <span class="serif acc-text pr-1">intelligence</span></h1>
+    <p class="h3 text-white/70 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-10">Detect glaucoma, analyze fundus images and get instant medical insights. Optim brings clinical-grade AI to every ophthalmologist's pocket.</p>
+    <div class="h4 flex flex-col sm:flex-row gap-3 justify-center items-center">
+      <a href="#download" class="btn btn-w"><i data-i="download"></i>Download now</a>
+      <a href="#demo" class="btn btn-g"><i data-i="play"></i>Watch demo</a>
+      <a href="https://github.com/eluriNarsimhulu/Optim" target="_blank" rel="noopener" class="btn btn-g"><i data-i="github"></i>View source</a>
+    </div>
+    <div class="h4 grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto mt-20">
+      <div><div class="text-3xl sm:text-4xl font-semibold grad-text">95%+</div><div class="text-xs sm:text-sm text-white/60 mt-1">Diagnostic accuracy</div></div>
+      <div><div class="text-3xl sm:text-4xl font-semibold grad-text">70%</div><div class="text-xs sm:text-sm text-white/60 mt-1">Less review time</div></div>
+      <div><div class="text-3xl sm:text-4xl font-semibold grad-text">24/7</div><div class="text-xs sm:text-sm text-white/60 mt-1">Availability</div></div>
+    </div>
+  </div>
+</section>
 
-    <!-- Demo Video Section -->
-    <section id="demo" class="py-20 bg-white">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Watch Optim in Action
-                </h2>
-                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                    See how our AI-powered platform transforms ophthalmology diagnosis and patient care
-                </p>
-            </div>
-            
-            <div class="max-w-5xl mx-auto">
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-4 sm:p-8 shadow-2xl">
-                    <div class="video-container shadow-xl">
-                        <iframe 
-                            src="https://www.youtube.com/embed/y8eBSF0POlE" 
-                            title="Optim Demo Video" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    
-                    <div class="mt-8 grid sm:grid-cols-3 gap-4">
-                        <div class="bg-white rounded-xl p-4 text-center shadow-md">
-                            <i class="fas fa-video text-purple-600 text-3xl mb-2"></i>
-                            <h4 class="font-bold text-gray-800 mb-1">Full Demo</h4>
-                            <p class="text-sm text-gray-600">Complete app walkthrough</p>
-                        </div>
-                        <div class="bg-white rounded-xl p-4 text-center shadow-md">
-                            <i class="fas fa-brain text-purple-600 text-3xl mb-2"></i>
-                            <h4 class="font-bold text-gray-800 mb-1">AI Features</h4>
-                            <p class="text-sm text-gray-600">See AI analysis in real-time</p>
-                        </div>
-                        <div class="bg-white rounded-xl p-4 text-center shadow-md">
-                            <i class="fas fa-user-check text-purple-600 text-3xl mb-2"></i>
-                            <h4 class="font-bold text-gray-800 mb-1">User Flow</h4>
-                            <p class="text-sm text-gray-600">Easy-to-use interface</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="about" class="py-24 px-6"><div class="max-w-6xl mx-auto">
+  <div class="rise max-w-2xl mb-14">
+    <h2 class="text-3xl sm:text-5xl font-medium tracking-tight grad-text mb-5">One platform for <span class="serif">diagnosis</span> and monitoring</h2>
+    <p class="text-[var(--muted)] text-lg">Optim transforms how eye care is delivered, from the first scan to the long-term patient record.</p>
+  </div>
+  <div id="about-grid" class="grid md:grid-cols-3 gap-5"></div>
+</div></section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Key Features
-                </h2>
-                <p class="text-lg sm:text-xl text-gray-600">
-                    Comprehensive tools for advanced ophthalmological analysis
-                </p>
-            </div>
-            
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="feature-card bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-comments text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Visual Q&A Chatbot</h3>
-                    <p class="text-gray-600 mb-4">
-                        Ask questions about eye images and receive instant AI-powered insights across multiple imaging modalities.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Fundus Photography</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>OCT Scans</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Slit-lamp Images</li>
-                    </ul>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="feature-card bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-microscope text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Binary Classification</h3>
-                    <p class="text-gray-600 mb-4">
-                        Accurate glaucoma detection with binary classification between healthy and glaucomatous eyes.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>High Accuracy Detection</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Probability Distribution</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Quick Results</li>
-                    </ul>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="feature-card bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-layer-group text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Image Segmentation</h3>
-                    <p class="text-gray-600 mb-4">
-                        Precise optic disc and cup segmentation for accurate cup-to-disc ratio (CDR) calculation.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Optic Disc Boundary</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Optic Cup Detection</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>CDR Analysis</li>
-                    </ul>
-                </div>
-                
-                <!-- Feature 4 -->
-                <div class="feature-card bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-star text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Advanced Classification</h3>
-                    <p class="text-gray-600 mb-4">
-                        Multi-class severity assessment distinguishing between normal, early, and advanced glaucoma.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Severity Grading</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Risk Assessment</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Detailed Probabilities</li>
-                    </ul>
-                </div>
-                
-                <!-- Feature 5 -->
-                <div class="feature-card bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-folder-open text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Electronic Health Records</h3>
-                    <p class="text-gray-600 mb-4">
-                        Comprehensive patient data management with secure storage and easy retrieval.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Patient History</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Examination Records</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Diagnostic Reports</li>
-                    </ul>
-                </div>
-                
-                <!-- Feature 6 -->
-                <div class="feature-card bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-                    <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-shield-alt text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Secure Authentication</h3>
-                    <p class="text-gray-600 mb-4">
-                        Multi-factor authentication with email and phone verification for maximum security.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Email Verification</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Phone OTP</li>
-                        <li class="flex items-center"><i class="fas fa-circle text-purple-600 text-xs mr-2"></i>Google Sign-In</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="demo" class="py-24 px-6"><div class="max-w-5xl mx-auto">
+  <div class="rise text-center mb-12">
+    <h2 class="text-3xl sm:text-5xl font-medium tracking-tight grad-text mb-4">See Optim in <span class="serif">action</span></h2>
+    <p class="text-[var(--muted)] text-lg">A complete walkthrough of the app, from upload to AI analysis.</p>
+  </div>
+  <div class="rise glass rounded-[32px] p-3 sm:p-5" style="box-shadow:0 0 120px rgba(78,133,191,.2)">
+    <div class="vid" id="yt">
+      <iframe
+        src="https://www.youtube.com/embed/y8eBSF0POlE?rel=0&playsinline=1"
+        title="Optim ophthalmology platform demo"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="flex justify-center pt-4"><a class="text-sm text-white/70 hover:text-white inline-flex items-center gap-2" href="https://www.youtube.com/watch?v=y8eBSF0POlE" target="_blank" rel="noopener"><i data-i="youtube"></i>Watch on YouTube</a></div>
+  </div>
+</div></section>
 
-    <!-- Download Section -->
-    <section id="download" class="py-20 gradient-bg">
-        <div class="container mx-auto px-4 sm:px-6 text-center">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-                Download Optim Now
-            </h2>
-            <p class="text-lg sm:text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-                Get started with AI-powered ophthalmology analysis. Download our app and experience the future of eye care.
-            </p>
-            
-            <div class="glass-effect rounded-2xl p-8 sm:p-12 max-w-3xl mx-auto">
-                <div class="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8 mb-8">
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-white mb-2">50 MB</div>
-                        <div class="text-white/80">App Size</div>
-                    </div>
-                    <div class="hidden sm:block w-px h-16 bg-white/30"></div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-white mb-2">Android</div>
-                        <div class="text-white/80">Platform</div>
-                    </div>
-                    <div class="hidden sm:block w-px h-16 bg-white/30"></div>
-                    <div class="text-center">
-                        <div class="text-4xl font-bold text-white mb-2">Latest</div>
-                        <div class="text-white/80">Version</div>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-    
-                    <a href="optim_release.apk" download 
-                       class="inline-flex items-center bg-white text-purple-600 px-10 py-5 rounded-full font-bold text-base whitespace-nowrap hover:bg-gray-100 transition shadow-xl">
-                        <i class="fas fa-download mr-3 text-xl"></i>
-                        Download APK (50 MB)
-                    </a>  <!-- ✅ FIXED -->
-                
-                    <a href="https://github.com/eluriNarsimhulu/Optim" target="_blank" 
-                       class="github-button inline-flex items-center bg-gray-900 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-800 transition shadow-xl">
-                        <i class="fab fa-github mr-3 text-xl"></i>
-                        View on GitHub
-                    </a>
-                
-                </div>
-                
-                <p class="text-white/70 text-sm">
-                    <i class="fas fa-info-circle mr-2"></i>
-                    For Android devices only. Make sure to enable "Install from Unknown Sources" in your settings.
-                </p>
-            </div>
-        </div>
-    </section>
+<section id="features" class="py-24 px-6"><div class="max-w-6xl mx-auto">
+  <div class="rise max-w-2xl mb-14">
+    <h2 class="text-3xl sm:text-5xl font-medium tracking-tight grad-text mb-5">Everything you need to <span class="serif">analyze</span> the eye</h2>
+    <p class="text-[var(--muted)] text-lg">Comprehensive tools for advanced ophthalmological analysis.</p>
+  </div>
+  <div id="feat-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+</div></section>
 
-    <!-- Team Section -->
-    <section id="team" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Meet Our Team
-                </h2>
-                <p class="text-lg sm:text-xl text-gray-600">
-                    GenAI Ophthalmology Team (G-489)
-                </p>
-            </div>
-            
-            <!-- Mentor -->
-            <div class="max-w-md mx-auto mb-16">
-                <div class="team-card bg-white rounded-2xl shadow-xl p-8 text-center">
-                    <div class="relative inline-block mb-6">
-                        <img src="https://res.cloudinary.com/dxhr35o8l/image/upload/v1770620207/1724602582662_seentg.jpg" 
-                             alt="Dr. Devika Rubi" 
-                             class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-purple-200">
-                        <div class="absolute -bottom-2 -right-2 w-12 h-12 gradient-bg rounded-full flex items-center justify-center border-4 border-white">
-                            <i class="fas fa-award text-white"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Dr. Devika Rubi</h3>
-                    <p class="text-purple-600 font-semibold mb-4">Project Mentor</p>
-                    <a href="https://www.linkedin.com/in/devikarubi/" target="_blank" 
-                       class="inline-flex items-center text-gray-600 hover:text-purple-600 transition">
-                        <i class="fab fa-linkedin text-2xl mr-2"></i>
-                        <span>Connect on LinkedIn</span>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Team Members -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-8">
-                <!-- Member 1 -->
-                <div class="team-card bg-white rounded-2xl shadow-lg p-6 text-center">
-                    <img src="https://res.cloudinary.com/dxhr35o8l/image/upload/v1763021259/profile_pic_tftmmz.png" 
-                         alt="E. Narsimhulu" 
-                         class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-purple-100">
-                    <h3 class="text-lg font-bold mb-1">E. Narsimhulu</h3>
-                    <p class="text-sm text-gray-600 mb-4">Team Member</p>
-                    <a href="https://www.linkedin.com/in/narsimhulu-eluri-293b6a24a/" target="_blank" 
-                       class="inline-block text-purple-600 hover:text-purple-700 transition">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                </div>
-                
-                <!-- Member 2 -->
-                <div class="team-card bg-white rounded-2xl shadow-lg p-6 text-center">
-                    <img src="https://res.cloudinary.com/dxhr35o8l/image/upload/v1763024229/Gemini_Generated_Image_reew3oreew3oreew_z0idqs.png" 
-                         alt="K. Srinidhi" 
-                         class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-purple-100">
-                    <h3 class="text-lg font-bold mb-1">K. Srinidhi</h3>
-                    <p class="text-sm text-gray-600 mb-4">Team Member</p>
-                    <a href="https://www.linkedin.com/in/srinidhi-kasetty-9440582b8/" target="_blank" 
-                       class="inline-block text-purple-600 hover:text-purple-700 transition">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                </div>
-                
-                <!-- Member 3 -->
-                <div class="team-card bg-white rounded-2xl shadow-lg p-6 text-center">
-                    <img src="https://res.cloudinary.com/dxhr35o8l/image/upload/v1763024462/Gemini_Generated_Image_hkv92fhkv92fhkv9_xsa0fl.png" 
-                         alt="A. Ramya" 
-                         class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-purple-100">
-                    <h3 class="text-lg font-bold mb-1">A. Ramya</h3>
-                    <p class="text-sm text-gray-600 mb-4">Team Member</p>
-                    <a href="https://www.linkedin.com/in/allu-ramya-3691902b8/" target="_blank" 
-                       class="inline-block text-purple-600 hover:text-purple-700 transition">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                </div>
-                
-                <!-- Member 4 -->
-                <div class="team-card bg-white rounded-2xl shadow-lg p-6 text-center">
-                    <img src="https://res.cloudinary.com/dxhr35o8l/image/upload/v1763024645/Gemini_Generated_Image_q7gj47q7gj47q7gj_aazobs.png" 
-                         alt="J. Adarsh" 
-                         class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-purple-100">
-                    <h3 class="text-lg font-bold mb-1">J. Adarsh</h3>
-                    <p class="text-sm text-gray-600 mb-4">Team Member</p>
-                    <a href="https://www.linkedin.com/in/adarsh-j-a44612293/" target="_blank" 
-                       class="inline-block text-purple-600 hover:text-purple-700 transition">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                </div>
-                
-                <!-- Member 5 -->
-                <div class="team-card bg-white rounded-2xl shadow-lg p-6 text-center">
-                    <img src="https://res.cloudinary.com/dxhr35o8l/image/upload/v1763024951/Gemini_Generated_Image_tbbrx9tbbrx9tbbr_jfaipw.png" 
-                         alt="P. Charanjeeth Shasta" 
-                         class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-purple-100">
-                    <h3 class="text-lg font-bold mb-1">P. Charanjeeth</h3>
-                    <p class="text-sm text-gray-600 mb-4">Team Member</p>
-                    <a href="https://www.linkedin.com/in/charanjeeth-shasta-pendam-45a1a72b5/" target="_blank" 
-                       class="inline-block text-purple-600 hover:text-purple-700 transition">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Download section -->
+<section id="download" class="py-24 px-6"><div class="rise max-w-4xl mx-auto relative overflow-hidden rounded-[36px] border border-white/10 text-center px-6 py-16 sm:py-20" style="background:radial-gradient(ellipse at 50% 0%,rgba(78,133,191,.30),transparent 60%),#0b1019">
+  <div class="relative">
+    <h2 class="text-3xl sm:text-5xl font-medium tracking-tight grad-text mb-5">Get <span class="serif">Optim</span> on your phone</h2>
+    <p class="text-white/70 text-lg max-w-xl mx-auto mb-10">Download the app and experience the future of eye care.</p>
+    <div class="flex justify-center gap-6 sm:gap-14 mb-10">
+      <div><div class="text-2xl font-semibold">50 MB</div><div class="text-sm text-white/60">App size</div></div>
+      <div class="w-px bg-white/15"></div>
+      <div><div class="text-2xl font-semibold">Android</div><div class="text-sm text-white/60">Platform</div></div>
+      <div class="w-px bg-white/15"></div>
+      <div><div class="text-2xl font-semibold">Latest</div><div class="text-sm text-white/60">Version</div></div>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-7">
+      <a href="optim_release.apk" download class="btn btn-w !px-8 !py-4"><i data-i="download"></i>Download APK (50 MB)</a>
+      <a href="https://github.com/eluriNarsimhulu/Optim" target="_blank" rel="noopener" class="btn btn-g !px-8 !py-4"><i data-i="github"></i>View on GitHub</a>
+    </div>
+    <p class="text-sm text-white/60 inline-flex items-center gap-2"><i data-i="info"></i>Android only. Enable "Install from unknown sources" in your settings first.</p>
+  </div>
+</div></section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
-                            <i class="fas fa-eye text-white"></i>
-                        </div>
-                        <span class="text-2xl font-bold">Optim</span>
-                    </div>
-                    <p class="text-gray-400">
-                        AI-Powered Ophthalmology Platform for advanced eye care diagnosis and monitoring.
-                    </p>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
-                        <li><a href="#demo" class="text-gray-400 hover:text-white transition">Demo</a></li>
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
-                        <li><a href="#download" class="text-gray-400 hover:text-white transition">Download</a></li>
-                        <li><a href="#team" class="text-gray-400 hover:text-white transition">Team</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Resources</h3>
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="https://github.com/eluriNarsimhulu/Optim" target="_blank" class="text-gray-400 hover:text-white transition flex items-center">
-                                <i class="fab fa-github mr-2"></i>GitHub Repository
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.youtube.com/watch?v=y8eBSF0POlE" target="_blank" class="text-gray-400 hover:text-white transition flex items-center">
-                                <i class="fab fa-youtube mr-2"></i>Demo Video
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#download" class="text-gray-400 hover:text-white transition flex items-center">
-                                <i class="fas fa-download mr-2"></i>Download App
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Important Notice</h3>
-                    <p class="text-gray-400 text-sm mb-4">
-                        This platform is designed for educational and research purposes. Results should not replace professional medical diagnosis.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/eluriNarsimhulu/Optim" target="_blank" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-github text-2xl"></i>
-                        </a>
-                        <a href="https://www.youtube.com/watch?v=y8eBSF0POlE" target="_blank" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-youtube text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8 text-center">
-                <p class="text-gray-400 mb-2">
-                    &copy; 2025 Optim - GenAI Ophthalmology Team (G-489). All rights reserved.
-                </p>
-                <p class="text-gray-500 text-sm">
-                    Made with <i class="fas fa-heart text-red-500"></i> by the Optim Team
-                </p>
-            </div>
-        </div>
-    </footer>
+<section id="team" class="py-24 px-6"><div class="max-w-6xl mx-auto">
+  <div class="rise text-center mb-14">
+    <h2 class="text-3xl sm:text-5xl font-medium tracking-tight grad-text mb-4">Meet the <span class="serif">team</span></h2>
+    <p class="text-[var(--muted)] text-lg">GenAI Ophthalmology Team (G-489)</p>
+  </div>
+  <div id="mentor" class="max-w-sm mx-auto mb-5"></div>
+  <div id="team-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+</div></section>
 
-    <!-- Scroll to Top Button -->
-    <button id="scroll-top" class="fixed bottom-8 right-8 w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 hover:scale-110 z-40">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+<footer class="border-t border-white/10 mt-10 px-6 py-14">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+    <div>
+      <div class="flex items-center gap-2.5 mb-4"><span class="w-9 h-9 rounded-full acc-bg grid place-items-center text-[#050507]"><i data-i="eye"></i></span><span class="font-semibold text-lg">Optim</span></div>
+      <p class="text-sm text-[var(--muted)] max-w-xs">AI-powered ophthalmology platform for advanced eye care diagnosis and monitoring.</p>
+    </div>
+    <div class="text-sm text-[var(--muted)] flex flex-col gap-3">
+      <a class="hover:text-white inline-flex items-center gap-3" href="https://github.com/eluriNarsimhulu/Optim" target="_blank" rel="noopener"><i data-i="github"></i>GitHub repository</a>
+      <a class="hover:text-white inline-flex items-center gap-3" href="https://www.youtube.com/watch?v=y8eBSF0POlE" target="_blank" rel="noopener"><i data-i="youtube"></i>Demo video</a>
+      <a class="hover:text-white inline-flex items-center gap-3" href="#download"><i data-i="download"></i>Download app</a>
+    </div>
+    <p class="text-sm text-[var(--muted)]">This platform is designed for educational and research purposes. Results should not replace professional medical diagnosis.</p>
+  </div>
+  <div class="max-w-6xl mx-auto mt-10 pt-6 border-t border-white/5 text-xs text-[var(--muted)] flex flex-col sm:flex-row justify-between gap-2">
+    <span>&copy; 2025 Optim – GenAI Ophthalmology Team (G-489). All rights reserved.</span>
+    <span class="inline-flex items-center gap-1.5">Made with <i data-i="heart" style="color:#ef4444"></i> by the Optim team</span>
+  </div>
+</footer>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+<script>
+const $=id=>document.getElementById(id);
+// ---- Icons (inline SVG, no external font) ----
+const L=p=>['s',p],B=p=>['f',p];
+const IC={
+eye:L('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>'),
+chat:L('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/>'),
+scan:L('<path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/><path d="M18.9 12.3a1 1 0 0 0 0-.6 7.5 7.5 0 0 0-13.8 0 1 1 0 0 0 0 .6 7.5 7.5 0 0 0 13.8 0"/>'),
+layers:L('<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/>'),
+chart:L('<path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/>'),
+folder:L('<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.7-.9l-.8-1.2A2 2 0 0 0 7.9 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/>'),
+shield:L('<path d="M20 13c0 5-3.5 7.5-7.7 8.9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>'),
+download:L('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>'),
+play:B('<path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5z"/>'),
+info:L('<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>'),
+menu:L('<path d="M4 6h16M4 12h16M4 18h16"/>'),
+heart:B('<path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.5 1 5.4 3 1.9-2 3.4-3 5.4-3 3.6 0 5.7 3.7 4.2 7.2C19.500 16.400 12 21 12 21z"/>'),
+github:B('<path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.200.1 1.800 1.200 1.800 1.200 1.100 1.800 2.800 1.300 3.500 1 .1-.8.4-1.300.8-1.600-2.700-.3-5.500-1.300-5.500-5.900 0-1.300.5-2.400 1.200-3.200-.1-.3-.5-1.500.1-3.200 0 0 1-.3 3.300 1.200a11.500 11.500 0 0 1 6 0c2.300-1.500 3.300-1.200 3.300-1.200.6 1.700.2 2.900.1 3.200.8.800 1.200 1.900 1.200 3.200 0 4.600-2.800 5.600-5.500 5.900.4.400.8 1.100.8 2.200v3.300c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/>'),
+youtube:B('<path d="M23.500 6.200a3 3 0 0 0-2.100-2.100C19.500 3.500 12 3.500 12 3.500s-7.500 0-9.400.6A3 3 0 0 0 .5 6.200C0 8.100 0 12 0 12s0 3.900.5 5.800a3 3 0 0 0 2.100 2.100c1.900.6 9.400.6 9.400.6s7.500 0 9.400-.6a3 3 0 0 0 2.100-2.100c.5-1.900.5-5.800.5-5.800s0-3.900-.5-5.800zM9.500 15.600V8.400l6.300 3.600-6.300 3.600z"/>'),
+linkedin:B('<path d="M20.400 20.500h-3.600v-5.600c0-1.300 0-3-1.800-3s-2.100 1.400-2.100 2.900v5.700H9.400V9h3.400v1.600c.5-.9 1.600-1.900 3.400-1.900 3.600 0 4.300 2.400 4.300 5.500v6.300zM5.300 7.400a2.100 2.100 0 1 1 0-4.100 2.100 2.100 0 0 1 0 4.100zM7.100 20.500H3.600V9h3.500v11.500zM22.200 0H1.800C.8 0 0 .8 0 1.700v20.600c0 .9.800 1.700 1.800 1.700h20.400c1 0 1.800-.8 1.800-1.700V1.700C24 .8 23.200 0 22.200 0z"/>')};
+const ic=n=>{const[k,p]=IC[n];return k==='s'?`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`:`<svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">${p}</svg>`};
+const hydrate=()=>document.querySelectorAll('i[data-i]').forEach(e=>{e.outerHTML=ic(e.dataset.i).replace('class="ic"',`class="ic" style="${e.getAttribute('style')||''}"`)});
 
-        // Close mobile menu when clicking a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+function av(i){const d=document.createElement('div');d.className=i.className+' grid place-items-center text-2xl font-semibold acc-bg text-[#050507]';d.textContent=i.alt.replace(/Dr\.\s*/,'').split(' ').map(w=>w[0]).join('').slice(0,2);i.replaceWith(d)}
+// ---- Content ----
+const about=[['chat','Visual question answering','Ask questions about fundus photos, OCT scans and slit-lamp images and get instant AI answers.'],['scan','Glaucoma detection suite','Deep learning for optic disc segmentation, binary classification and severity grading with accurate cup-to-disc ratio.'],['folder','Electronic health records','Store patient history, examinations and diagnostic reports securely in one place.']];
+const feats=[['chat','Visual Q&A chatbot','Ask questions about eye images and receive instant insights.',['Fundus photography','OCT scans','Slit-lamp images']],['scan','Binary classification','Detect glaucoma by separating healthy from glaucomatous eyes.',['High accuracy detection','Probability distribution','Quick results']],['layers','Image segmentation','Precise optic disc and cup segmentation for CDR calculation.',['Optic disc boundary','Optic cup detection','CDR analysis']],['chart','Advanced classification','Multi-class severity assessment: normal, early and advanced glaucoma.',['Severity grading','Risk assessment','Detailed probabilities']],['folder','Electronic health records','Patient data management with secure storage and easy retrieval.',['Patient history','Examination records','Diagnostic reports']],['shield','Secure authentication','Multi-factor sign-in with email and phone verification.',['Email verification','Phone OTP','Google sign-in']]];
+const mentor={n:'Dr. Devika Rubi',img:'https://res.cloudinary.com/dxhr35o8l/image/upload/v1770620207/1724602582662_seentg.jpg',l:'https://www.linkedin.com/in/devikarubi/'};
+const team=[['E. Narsimhulu','https://res.cloudinary.com/dxhr35o8l/image/upload/v1763021259/profile_pic_tftmmz.png','https://www.linkedin.com/in/narsimhulu-eluri-293b6a24a/'],['K. Srinidhi','https://res.cloudinary.com/dxhr35o8l/image/upload/v1763024229/Gemini_Generated_Image_reew3oreew3oreew_z0idqs.png','https://www.linkedin.com/in/srinidhi-kasetty-9440582b8/'],['A. Ramya','https://res.cloudinary.com/dxhr35o8l/image/upload/v1763024462/Gemini_Generated_Image_hkv92fhkv92fhkv9_xsa0fl.png','https://www.linkedin.com/in/allu-ramya-3691902b8/'],['J. Adarsh','https://res.cloudinary.com/dxhr35o8l/image/upload/v1763024645/Gemini_Generated_Image_q7gj47q7gj47q7gj_aazobs.png','https://www.linkedin.com/in/adarsh-j-a44612293/'],['P. Charanjeeth','https://res.cloudinary.com/dxhr35o8l/image/upload/v1763024951/Gemini_Generated_Image_tbbrx9tbbrx9tbbr_jfaipw.png','https://www.linkedin.com/in/charanjeeth-shasta-pendam-45a1a72b5/']];
+$('about-grid').innerHTML=about.map(a=>`<div class="card rise p-8"><div class="ico mb-6">${ic(a[0])}</div><h3 class="text-xl font-medium mb-3">${a[1]}</h3><p class="text-[var(--muted)] leading-relaxed">${a[2]}</p></div>`).join('');
+$('feat-grid').innerHTML=feats.map(f=>`<div class="card rise p-8"><div class="ico mb-6">${ic(f[0])}</div><h3 class="text-xl font-medium mb-3">${f[1]}</h3><p class="text-[var(--muted)] mb-5">${f[2]}</p><ul class="space-y-2.5 text-sm text-white/70">${f[3].map(i=>`<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full acc-bg"></span>${i}</li>`).join('')}</ul></div>`).join('');
+$('mentor').innerHTML=`<div class="card rise p-8 text-center"><img src="${mentor.img}" alt="${mentor.n}" loading="eager" decoding="async" class="w-28 h-28 rounded-full object-cover mx-auto mb-5 ring-2 ring-[#4E85BF]/60 ring-offset-4 ring-offset-[#050507]"><h3 class="text-xl font-medium">${mentor.n}</h3><p class="acc-text font-medium mb-4">Project mentor</p><a href="${mentor.l}" target="_blank" rel="noopener" class="text-white/70 hover:text-white text-sm inline-flex items-center gap-2">${ic('linkedin')}Connect on LinkedIn</a></div>`;
+$('team-grid').innerHTML=team.map(t=>`<div class="card rise p-6 text-center"><img src="${t[1]}" alt="${t[0]}" loading="eager" decoding="async" class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border border-white/15"><h3 class="font-medium mb-1">${t[0]}</h3><p class="text-xs text-[var(--muted)] mb-3">Team member</p><a href="${t[2]}" target="_blank" rel="noopener" aria-label="${t[0]} on LinkedIn" class="text-white/60 hover:text-[var(--a1)] text-xl">${ic('linkedin')}</a></div>`).join('');
+hydrate();
 
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scroll-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-            } else {
-                scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
-            }
-        });
+// Background videos removed: the hero uses a lightweight animated canvas/gradient.
 
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+// ---- Hero background video: sharp, muted and looping ----
+(() => {
+  const video = document.getElementById('hero-video');
+  const streamUrl = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80; // Account for fixed navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.loop = true;
 
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+  const tryPlay = () => video.play().catch(() => {
+    // Browser autoplay restrictions may prevent playback.
+  });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+  if (window.Hls && Hls.isSupported()) {
+    const player = new Hls({ enableWorker: true, lowLatencyMode: false });
+    player.loadSource(streamUrl);
+    player.attachMedia(video);
+    player.on(Hls.Events.MANIFEST_PARSED, tryPlay);
+    player.on(Hls.Events.ERROR, (_event, data) => {
+      if (data.fatal) {
+        player.destroy();
+        video.style.display = 'none';
+      }
+    });
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = streamUrl;
+    video.addEventListener('loadedmetadata', tryPlay, { once: true });
+    video.addEventListener('error', () => { video.style.display = 'none'; }, { once: true });
+  } else {
+    video.style.display = 'none';
+  }
 
-        // Observe all feature cards and team cards
-        document.querySelectorAll('.feature-card, .team-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
+  video.addEventListener('ended', () => {
+    video.currentTime = 0;
+    tryPlay();
+  });
+})();
 
-        // Add active nav link highlighting
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+// ---- Vortex fallback (shows while video loads or if it can't load) ----
+(()=>{const c=$('bg'),x=c.getContext('2d');let W,H,cx,cy,P=[],S=[],on=true;
+function init(){const d=Math.min(devicePixelRatio||1,2),r=c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);cx=W/2;cy=H*.17;
+P=Array.from({length:W<640?700:1400},()=>({a:Math.random()*6.283,r:60+Math.pow(Math.random(),1.7)*W*.75,s:Math.random()*.6+.4,z:Math.random()*1.4+.3,l:Math.random()*.6+.25}));
+S=Array.from({length:120},()=>({x:Math.random()*W,y:Math.random()*H,z:Math.random()*1.2+.3,p:Math.random()*6.283}));x.fillStyle='#050507';x.fillRect(0,0,W,H)}
+function f(t){if(!on)return;x.fillStyle='rgba(5,5,7,.22)';x.fillRect(0,0,W,H);
+const g=x.createRadialGradient(cx,cy,0,cx,cy,W*.45);g.addColorStop(0,'rgba(120,190,255,.28)');g.addColorStop(.4,'rgba(40,100,190,.1)');g.addColorStop(1,'rgba(5,5,7,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+x.save();x.translate(cx,cy);x.scale(1,.42);
+for(const p of P){p.a+=.0011*p.s*(260/(p.r+80))*3;const b=Math.max(0,1-p.r/(W*.8));x.fillStyle=`rgba(${150+b*90|0},${190+b*50|0},255,${p.l*(.35+b)})`;x.fillRect(Math.cos(p.a)*p.r,Math.sin(p.a)*p.r,p.z,p.z)}
+x.restore();for(const s of S){x.fillStyle=`rgba(255,255,255,${(.3+.6*Math.abs(Math.sin(t*.0005+s.p)))*.8})`;x.beginPath();x.arc(s.x,s.y,s.z,0,6.283);x.fill()}
+requestAnimationFrame(f)}
+window.stopBg=()=>{on=false};addEventListener('resize',()=>{if(on)init()});init();
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)requestAnimationFrame(f)})();
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
 
-            navLinks.forEach(link => {
-                link.classList.remove('text-purple-600');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('text-purple-600');
-                }
-            });
-        });
-    </script>
+// Close the mobile navigation after outside taps or Escape.
+document.addEventListener('click', (event) => {
+  const menu = document.getElementById('mm');
+  const button = document.getElementById('mb');
+  if (menu && button && !menu.contains(event.target) && !button.contains(event.target)) {
+    menu.classList.add('hidden');
+    menu.classList.remove('flex');
+  }
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    const menu = document.getElementById('mm');
+    if (menu) { menu.classList.add('hidden'); menu.classList.remove('flex'); }
+  }
+});
+
+// ---- UI ----
+$('mb').onclick=()=>{$('mm').classList.toggle('hidden');$('mm').classList.toggle('flex')};
+document.querySelectorAll('#mm a').forEach(a=>a.onclick=()=>{$('mm').classList.add('hidden');$('mm').classList.remove('flex')});
+if ('IntersectionObserver' in window) { const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}); document.querySelectorAll('.rise').forEach((el,i)=>{el.style.transitionDelay=(i%3)*80+'ms';io.observe(el)}); }
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}));
+</script>
 </body>
 </html>
